@@ -1,0 +1,181 @@
+
+\documentclass[12pt,a4paper]{book}
+
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\geometry{margin=2.5cm}
+
+\titleformat{\chapter}{\huge\bfseries}{Chương \thechapter}{1em}{}
+
+\title{GIÁO TRÌNH KINH TẾ LƯỢNG CƠ BẢN\\
+(Phiên bản mở rộng)}
+\author{Nguyễn Thị Hồng Nhung}
+\date{}
+
+\newtheorem{theorem}{Định lý}
+\newtheorem{definition}{Định nghĩa}
+\newtheorem{proposition}{Mệnh đề}
+\newtheorem{example}{Ví dụ}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+%==================================================
+\chapter{Giới thiệu hồi quy}
+
+\section{Khái niệm}
+\[
+Y = \beta_0 + \beta_1 X + \varepsilon
+\]
+
+\section{Ý nghĩa}
+\[
+E(Y|X) = \beta_0 + \beta_1 X
+\]
+
+\section{Case study 1: Giá nhà}
+Phân tích giá nhà theo diện tích.
+
+\begin{example}
+Dữ liệu giả định:
+\begin{itemize}
+\item Diện tích (m2)
+\item Giá (triệu đồng)
+\end{itemize}
+\end{example}
+
+\section{Bài tập}
+\begin{enumerate}
+\item Viết mô hình hồi quy.
+\item Giải thích hệ số.
+\end{enumerate}
+
+\section{Lời giải mẫu}
+\begin{itemize}
+\item $\beta_1$: mức thay đổi trung bình của $Y$ khi $X$ tăng 1 đơn vị.
+\end{itemize}
+
+%==================================================
+\chapter{Không gian vector}
+
+\section{Khái niệm}
+\[
+\hat{Y} = X(X'X)^{-1}X'Y
+\]
+
+\section{Ý nghĩa hình học}
+Phép chiếu trực giao.
+
+%==================================================
+\chapter{Ước lượng OLS}
+
+\section{Bài toán}
+\[
+\min (Y-X\beta)'(Y-X\beta)
+\]
+
+\section{Nghiệm}
+\[
+\hat{\beta} = (X'X)^{-1}X'Y
+\]
+
+\section{Chứng minh}
+Lấy đạo hàm và cho bằng 0.
+
+%==================================================
+\chapter{Gauss-Markov}
+
+\begin{theorem}
+OLS là BLUE.
+\end{theorem}
+
+\section{Chứng minh (phác thảo)}
+So sánh phương sai các estimator tuyến tính.
+
+%==================================================
+\chapter{Suy luận thống kê}
+
+\section{Phân phối}
+\[
+\hat{\beta} \sim N(\beta, \sigma^2(X'X)^{-1})
+\]
+
+\section{Kiểm định}
+\[
+t = \frac{\hat{\beta}}{SE}
+\]
+
+%==================================================
+\chapter{Vi phạm giả định}
+
+\section{Heteroskedasticity}
+\section{Autocorrelation}
+\section{Multicollinearity}
+
+\section{Case study 2: Dữ liệu kinh tế}
+Phương sai thay đổi trong thu nhập.
+
+%==================================================
+\chapter{Khắc phục}
+
+\section{Robust SE}
+\section{GLS}
+
+%==================================================
+\chapter{Hồi quy nhiều biến}
+
+\[
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \varepsilon
+\]
+
+\section{Case study 3}
+MPG theo wt và hp.
+
+%==================================================
+\chapter{Thực hành R}
+
+\begin{verbatim}
+model <- lm(mpg ~ wt + hp, data = mtcars)
+summary(model)
+\end{verbatim}
+
+%==================================================
+\chapter{Bài tập nâng cao}
+
+\section{Bài 1}
+Chứng minh tính không chệch.
+
+\section{Lời giải}
+\[
+E(\hat{\beta}) = \beta
+\]
+
+\section{Bài 2}
+So sánh OLS và GLS.
+
+\section{Lời giải}
+GLS hiệu quả hơn khi có phương sai thay đổi.
+
+%==================================================
+\chapter{Case study mở rộng}
+
+\section{Giáo dục}
+\section{Tài chính}
+\section{Kinh tế vĩ mô}
+
+%==================================================
+\chapter{Phụ lục}
+
+\section{Ma trận}
+\section{Xác suất}
+
+\end{document}
